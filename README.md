@@ -1,2 +1,3 @@
 # songlesync-klight
-<a rink=index.html></a>
+# index.html
+# index_s.html
