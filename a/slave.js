@@ -1,5 +1,5 @@
 function onSongleAPIReady(Songle){
-
+	
   var player = new Songle.Player({
       accessToken: '00000144-8PDPBsb' // アクセストークン
 	//mediaElement: "#songle"
