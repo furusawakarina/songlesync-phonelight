@@ -1,5 +1,5 @@
 
 ### 操作
-[master](https://furusawakarina.github.io/songlesync-klight/a/index.html)
+[master](https://furusawakarina.github.io/songlesync-phonelight/a/index.html)
 ### 制御
-[slave](https://furusawakarina.github.io/songlesync-klight/a/index_s.html)
+[slave](https://furusawakarina.github.io/songlesync-phonelight/a/index_s.html)
