@@ -5,6 +5,16 @@ function onSongleAPIReady(Songle){
 	//mediaElement: "#songle"
   });
 
+	const player =
+  new window.Songle.Player({
+    mediaElement: "#songle"
+  });
+
+player.on("ready",
+  function(ev) {
+    player.play();
+  });
+
   player.addPlugin(new Songle.Plugin.SongleSync());
 　//player.useMedia("https://www.youtube.com/watch?v=mTMs1S5td74");
 
