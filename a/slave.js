@@ -27,8 +27,14 @@ player.on("chordEnter",
   function(ev) {
 	if (!syncMode) return;
      //do someting ...
-	//var synchronizeButton = document.querySelector('button.red');
-	document.body.style.backgroundColor = "hsl(" + Math.random()*360 + ",90%,60%)";
+	const chordName = ev.data.chord.name;
+	let color = "white";
+	document.body.style.backgroundColor {
+		
+		if (chordName.startsWith("C")){
+		color = "hsl(20,85%,60%)";
+		}
+	}
 	
   });
 
