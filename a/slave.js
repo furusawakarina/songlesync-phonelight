@@ -33,7 +33,18 @@ player.on("chordEnter",
 		
 		if (chordName.startsWith("C")){
 		color = "hsl(20,85%,60%)";
-		}
+		} else if (chordName.startsWith("G")) {
+		    color = "hsl(40, 80%, 60%)";
+		  } else if (chordName.startsWith("F")) {
+		    color = "hsl(50, 80%, 55%)";
+		  } else if (chordName.startsWith("Am")) {
+		    color = "hsl(200, 70%, 45%)";
+		  } else if (chordName.startsWith("Dm")) {
+		    color = "hsl(180, 65%, 43%)";
+		  } else if (chordName.startsWith("Em")) {
+		    color = "hsl(220, 70%, 47%)";
+		  }
+
 	  
 	document.body.style.backgroundColor = color;
 	
