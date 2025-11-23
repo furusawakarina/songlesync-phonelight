@@ -10,13 +10,13 @@ function onSongleAPIReady(Songle){
     mediaElement: "#songle"
   });*/
 
-splayer.on("ready",
+/*splayer.on("ready",
   function(ev) {
-    player.play();
-  });
+    splayer.play();
+  });*/
 
   splayer.addPlugin(new Songle.Plugin.SongleSync());
-　//player.useMedia("https://www.youtube.com/watch?v=mTMs1S5td74");
+	//player.useMedia("https://www.youtube.com/watch?v=mTMs1S5td74");
  splayer.addPlugin(new Songle.Plugin.Chord());
 let syncMode = false;
 
@@ -48,7 +48,7 @@ splayer.on("chordEnter",
 	
   });
 
-
+	
 //同期ボタン
 const syncButton = document.querySelector('button.synchronize');
   syncButton.addEventListener('click', () => {
@@ -59,13 +59,12 @@ const syncButton = document.querySelector('button.synchronize');
     console.log("同期開始！");
   });
 
-
-
+	
 //停止
 const stopButton = document.querySelector('button.stop');
   stopButton.addEventListener('click', () => {
-    document.body.style.backgroundColor ="white";
-　　syncMode = false;
+	  document.body.style.backgroundColor ="white";
+	  syncMode = false;
   });
 
 //ボタンでの切り替え
