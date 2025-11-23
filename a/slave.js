@@ -1,6 +1,6 @@
 function onSongleAPIReady(Songle){
 	
-  var player = new Songle.Player({
+  var splayer = new Songle.Player({
       accessToken: '00000144-8PDPBsb' // アクセストークン
 	  //mediaElement: "#songle"
   });
@@ -10,27 +10,25 @@ function onSongleAPIReady(Songle){
     mediaElement: "#songle"
   });*/
 
-player.on("ready",
+splayer.on("ready",
   function(ev) {
     player.play();
   });
 
-  player.addPlugin(new Songle.Plugin.SongleSync());
+  splayer.addPlugin(new Songle.Plugin.SongleSync());
 　//player.useMedia("https://www.youtube.com/watch?v=mTMs1S5td74");
-
+ splayer.addPlugin(new Songle.Plugin.Chord());
 let syncMode = false;
 
 //和音
-player.addPlugin(new Songle.Plugin.Chord());
 
-player.on("chordEnter",
+
+splayer.on("chordEnter",
   function(ev) {
-	if (!syncMode = ture) ;//return;
+	if (!syncMode )return;
      //do someting ...
 	const chordName = ev.data.chord.name;
 	let color = "white";
-	
-		
 		if (chordName.startsWith("C")){
 		color = "hsl(20,85%,60%)";
 		} else if (chordName.startsWith("G")) {
