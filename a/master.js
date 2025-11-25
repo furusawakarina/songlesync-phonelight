@@ -20,13 +20,13 @@ function onSongleAPIReady(Songle) {
 //ビート
 player.addPlugin(new Songle.Plugin.Beat());
 
-//const tiles = document.querySelectorAll('#beats li');
+/*
 player.on("beatEnter",
   function(ev) {
     // 処理 ...
 	document.body.style.backgroundColor = "hsl(" + Math.random()*360 + ",90%,60%)";
 	
-  });
+  });*/
 
 //メロディ
 player.addPlugin(new Songle.Plugin.Melody());
