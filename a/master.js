@@ -80,47 +80,6 @@ player.on("chordEnter",
     return Math.max(0, Math.min(1, 0.8 - 0.1 * tension));
   }
 
-  // Key → 彩度(S)計算 (0〜1)
-  function getSaturation(key) {
-    // player.data.song.key が 0〜11 という想定
-    const k = (typeof key === "number") ? key : 0;
-    return 0.6 + 0.03 * k;
-  }
-
-  // HSV → RGB変換
-  function hsvToRgb(h, s, v) {
-    let c = v * s;
-    let x = c * (1 - Math.abs((h / 60) % 2 - 1));
-    let m = v - c;
-    let r, g, b;
-    if (h < 60) [r, g, b] = [c, x, 0];
-    else if (h < 120) [r, g, b] = [x, c, 0];
-    else if (h < 180) [r, g, b] = [0, c, x];
-    else if (h < 240) [r, g, b] = [0, x, c];
-    else if (h < 300) [r, g, b] = [x, 0, c];
-    else [r, g, b] = [c, 0, x];
-    return {
-      r: Math.round((r + m) * 255),
-      g: Math.round((g + m) * 255),
-      b: Math.round((b + m) * 255)
-    };
-  }
-
-  // 線形補間
-  function lerp(a, b, t) {
-    return a + (b - a) * t;
-  }
-
-  // 色の補間
-  function blendColors(c1, c2, t) {
-    return {
-      r: Math.round(lerp(c1.r, c2.r, t)),
-      g: Math.round(lerp(c1.g, c2.g, t)),
-      b: Math.round(lerp(c1.b, c2.b, t))
-    };
-  }
-
-
 
   // ページが読み込まれたら再生を開始する
   player.on('mediaReady', function () {
