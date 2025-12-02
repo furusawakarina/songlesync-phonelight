@@ -165,4 +165,5 @@ player.addPlugin(new Songle.Plugin.Chord());
     var textNode = document.createTextNode(parseInt(player.position));
     span.appendChild(textNode);
   }, 100);
+	
 }
