@@ -118,7 +118,7 @@ player.on("chordEnter",
   var span = document.querySelector('span.time');
   setInterval(function () {
     while (span.childNodes.length > 0) span.removeChild(span.childNodes[0]);
-    var textNode = document.createTextNode(parseInt(player.position));
+    var textNode = document.createTextNode(parseInt(player.positionTime));
     span.appendChild(textNode);
   }, 100);
 	
