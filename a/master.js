@@ -17,69 +17,75 @@ function onSongleAPIReady(Songle) {
   player.useMedia('https://www.youtube.com/watch?v=JedKBJVHhiE');
 
 
-//ビート
-player.addPlugin(new Songle.Plugin.Beat());
-
-/*
-player.on("beatEnter",
-  function(ev) {
-    // 処理 ...
-	document.body.style.backgroundColor = "hsl(" + Math.random()*360 + ",90%,60%)";
-	
-  });*/
-
-//メロディ
-player.addPlugin(new Songle.Plugin.Melody());
-player.on("melodyEnter",
-  function(ev) {
-    // do someting ...
-	//document.body.style.backgroundColor = "hsl(" + Math.random()*360 + ",100%,60%)";
-  });
 
 //和音
 player.addPlugin(new Songle.Plugin.Chord());
 
 player.on("chordEnter",
   function(ev) {
-    console.log("Chord event:", ev.data.chord);
+	  if (!syncMode) return;
+     //do someting ...
+	const chordName = ev.data.chord.name;
+	  
+	let h = "white";
+	  if (chordName.startsWith("C"))
+		  h = 0;
+	  else if(chordName.startsWith("C#") || chordName.startsWith("Db"))
+		  h = 30;
+	  else if(chordName.startsWith("D"))
+		  h = 60;
+	  else if(chordName.startsWith("D#") || chordName.startsWith("Eb"))
+		  h = 90;
+	  else if(chordName.startsWith("E"))
+		  h = 120;
+	  else if(chordName.startsWith("F"))
+		  h = 150;
+	  else if(chordName.startsWith("F#") || chordName.startsWith("Gb"))
+		  h = 180;
+	  else if(chordName.startsWith("G"))
+		  h = 210;
+	  else if(chordName.startsWith("G#") || chordName.startsWith("Ab"))
+		  h = 240;
+	  else if(chordName.startsWith("A"))
+		  h = 270;
+	  else if(chordName.startsWith("A#") || chordName.startsWith("Bb"))
+		  h = 300;
+	  else if(chordName.startsWith("B"))
+		  h = 330;
+	  
+	let s = 65;
+	  if (chordName.includes("6"))
+		  s = 68;
+	  else if(chordName.includes("maj7"))
+		  s = 72;
+	  else if(chordName.includes("m7"))
+		  s = 68;
+	  else if(chordName.includes("m7(♭5)"))
+		  s = 82;
+	  else if(chordName.includes("7"))
+		  s = 80;
+	  else if(chordName.includes("m"))
+		  s = 60;
+	  else if(chordName.includes("dim"))
+		  s = 88;
+	  else if(chordName.includes("aug"))
+		  s = 78;
 
-    const chordName = ev.data.chord.chordName;   // 例: "Am", "F#dim", "G7"
-    const chordType = classifyChord(chordName); // "M","m","sus","dim","7" のどれか
-    const key = player.data.song && player.data.song.key;
+	  let l = 50;
+		  if(chordName.includes("/3"))
+			  l = 75;
+		  else if(chordName.includes("/5"))
+			l = 68;
+		  else if (chordName.includes("/2"))
+			  l = 65;
+		  else if (chordName.includes("/♭7"))
+			  l = 60;
+		  else if (chordName.includes("/7"))
+			  l = 55;
 
-    // 仮：緊張度
-    const tensionTable = { "M": 0, "m": 1, "sus": 1, "7": 2, "dim": 3 };
-    const tension = tensionTable[chordType] ?? 0;
-
-    const H = getHue(chordType);
-    const S = getSaturation(key);
-    const V = getValue(tension);
-
-    const rgb = hsvToRgb(H, S, V);
-
-    /*// ★ 白にちょっと寄せたい場合（中間色を挟む）
-    const white = { r: 255, g: 255, b: 255 };
-    const blended = blendColors(rgb, white, 0.3); // 0.3だけ白に寄せる
-*/
-    document.body.style.backgroundColor =
-      "rgb(${rgb.r}, ${rgb.g}, ${rgb.b})";
+	  document.body.style.backgroundColor = 'hsl(${h}, ${s}%, ${l}%)';
+								 
   });
-
-  // 和音の種類に応じた色相（Hue）
-  function getHue(chordType) {
-    switch (chordType) {
-      case "M":   return 60;   // Major → 黄色寄り
-      case "m":   return 240;  // Minor → 青
-      case "sus": return 120;  // Sus → 緑
-      case "dim": return 280;  // Dim → 紫
-      case "7":   return 350;  // 7th → 赤寄り
-      default:    return 0;
-    }
-  }
-	function getValue(tension) {
-    return Math.max(0, Math.min(1, 0.8 - 0.1 * tension));
-  }
-
 
   // ページが読み込まれたら再生を開始する
   player.on('mediaReady', function () {
@@ -97,6 +103,7 @@ player.on("chordEnter",
   seekToButton.addEventListener('click', function () {
     player.seekTo(0);
   });
+	
 //サビ
 
 
@@ -106,16 +113,6 @@ player.on("chordEnter",
     player.pause();
   });
 
-//ビート・コード　プラグイン
-	/*
-player.addPlugin(new Songle.Plugin.Beat());
-player.on("beatEnter",
-  function(ev) {
-    //  処理
-	
-  });
-player.addPlugin(new Songle.Plugin.Chord());
-*/
 
   // 再生時刻を定期的に更新する
   var span = document.querySelector('span.time');
