@@ -14,7 +14,7 @@ function onSongleAPIReady(Songle) {
   clientId: "unique-" + Date.now()
   }));
 
-  player.useMedia("https://www.youtube.com/watch?v=uGyzYwhleeE");
+  player.useMedia("https://www.nicovideo.jp/watch/sm40955466");
 
 
 
