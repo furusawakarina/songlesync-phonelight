@@ -10,7 +10,7 @@ html,body {
 body {
   //margin: 1em;
   font-family: 'Hiragino Kaku Gothic Pro','游ゴシック体','Yu Gothic',YuGothic,Meiryo,HelveticaNeue,'Helvetica Neue',Helvetica,Arial,sans-serif;
-
+	transition: background-color 0.35s linear;
 }
 
 
