@@ -12,7 +12,10 @@ body {
   font-family: 'Hiragino Kaku Gothic Pro','游ゴシック体','Yu Gothic',YuGothic,Meiryo,HelveticaNeue,'Helvetica Neue',Helvetica,Arial,sans-serif;
 	transition: background-color 0.35s linear;
 }
-
+.media {
+  width: 200px;
+  height: 100px;
+}
 
 h1 {
   font-size: 1.6em;
