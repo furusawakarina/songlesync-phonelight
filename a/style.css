@@ -9,9 +9,28 @@ html,body {
 
 body {
   //margin: 1em;
-  font-family: 'Hiragino Kaku Gothic Pro','游ゴシック体','Yu Gothic',YuGothic,Meiryo,HelveticaNeue,'Helvetica Neue',Helvetica,Arial,sans-serif;
+  //font-family: 'Sacramento', cursive;
 	transition: background-color 0.35s linear;
+	text-align: center;
+
+	background: linear-gradient(120deg, #f9fcff, #bde5ff, #e0f7fa);
+    background-size: 400% 400%;
+    animation: gradientBG 8s ease infinite;
 }
+
+button{
+	font-family: 'Hangyaku', sans-serif;
+	border-radius: 70%;
+  line-height: 0px;
+  width: 70px;
+  height: 70px;
+  padding: 0;
+	border: none;
+	color: #fff;
+	font-size:30px;
+	
+}
+
 .media {
   width: 500px;
   height: 250px;
