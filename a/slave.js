@@ -140,6 +140,7 @@ const syncButton = document.querySelector('button.synchronize');
 	//player.addPlugin(new Songle.Plugin.Chord());
 
     console.log("同期開始！");
+	  console.log(ev.data.chord.name);
   });
 
 	
