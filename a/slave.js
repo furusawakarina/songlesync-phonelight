@@ -21,7 +21,7 @@ function onSongleAPIReady(Songle){
 let syncMode = false;
 
 //グラデ
-let fadeMsOnSync = 350;  // Syncのときだけフェード
+/*let fadeMsOnSync = 350;  // Syncのときだけフェード
 let current = { h: 0, s: 70, l: 60 };
 let animId = null;
 
@@ -58,7 +58,7 @@ function setColorSmooth(targetH, targetS, targetL, durationMs) {
     if (t < 1) animId = requestAnimationFrame(tick);
   }
   animId = requestAnimationFrame(tick);
-}
+}*/
 	
 //和音
 splayer.on("chordEnter",
@@ -123,8 +123,8 @@ splayer.on("chordEnter",
 		  else if (chordName.includes("/7"))
 			  l = 55;
 
-	  //document.body.style.backgroundColor = `hsl(${h}, ${s}%, ${l}%)`;
-	setColorSmooth(h, s, l, fadeMsOnSync);
+	  document.body.style.backgroundColor = `hsl(${h}, ${s}%, ${l}%)`;
+	//setColorSmooth(h, s, l, fadeMsOnSync);
   });
 	
 
