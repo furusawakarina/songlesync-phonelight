@@ -26,6 +26,7 @@ player.on("chordEnter",
 	  //if (!syncMode) return;
      //do someting ...
 	const chordName = ev.data.chord.name;
+	  let h =0;
 	  
 	let h = "white";
 	  if (chordName.startsWith("C"))
