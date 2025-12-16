@@ -20,14 +20,53 @@ function onSongleAPIReady(Songle){
  splayer.addPlugin(new Songle.Plugin.Chord());
 let syncMode = false;
 
+//グラデ
+let fadeMsOnSync = 350;  // Syncのときだけフェード
+let current = { h: 0, s: 70, l: 60 };
+let animId = null;
+
+function shortestHueDelta(from, to) {
+  return ((to - from + 540) % 360) - 180;
+}
+
+function setColorSmooth(targetH, targetS, targetL, durationMs) {
+  if (animId) cancelAnimationFrame(animId);
+
+  if (durationMs <= 0) {
+    current = { h: targetH, s: targetS, l: targetL };
+    document.body.style.backgroundColor = `hsl(${current.h}, ${current.s}%, ${current.l}%)`;
+    return;
+  }
+
+  const start = performance.now();
+  const startH = current.h, startS = current.s, startL = current.l;
+  const dH = shortestHueDelta(startH, targetH);
+  const dS = targetS - startS;
+  const dL = targetL - startL;
+
+  function tick(now) {
+    const t = Math.min(1, (now - start) / durationMs);
+    const e = t < 0.5 ? 2*t*t : 1 - Math.pow(-2*t + 2, 2)/2;
+
+    const h = (startH + dH * e + 360) % 360;
+    const s = startS + dS * e;
+    const l = startL + dL * e;
+
+    current = { h, s, l };
+    document.body.style.backgroundColor = `hsl(${h}, ${s}%, ${l}%)`;
+
+    if (t < 1) animId = requestAnimationFrame(tick);
+  }
+  animId = requestAnimationFrame(tick);
+}
+	
 //和音
-
-
 splayer.on("chordEnter",
   function(ev) {
 	if (!syncMode) return;
      //do someting ...
 	const chordName = ev.data.chord.name;
+	  let h =0;
 	let color = "white";
 		if (chordName.startsWith("C"))
 		  h = 0;
@@ -84,51 +123,13 @@ splayer.on("chordEnter",
 		  else if (chordName.includes("/7"))
 			  l = 55;
 
-	  document.body.style.backgroundColor = `hsl(${h}, ${s}%, ${l}%)`;
-	
+	  //document.body.style.backgroundColor = `hsl(${h}, ${s}%, ${l}%)`;
+	setColorSmooth(h, s, l, fadeMsOnSync);
   });
 	
-//グラデ
-let fadeMsOnSync = 350;  // Syncのときだけフェード
-let current = { h: 0, s: 70, l: 60 };
-let animId = null;
 
-function shortestHueDelta(from, to) {
-  return ((to - from + 540) % 360) - 180;
-}
 
-function setColorSmooth(targetH, targetS, targetL, durationMs) {
-  if (animId) cancelAnimationFrame(animId);
 
-  if (durationMs <= 0) {
-    current = { h: targetH, s: targetS, l: targetL };
-    document.body.style.backgroundColor = `hsl(${current.h}, ${current.s}%, ${current.l}%)`;
-    return;
-  }
-
-  const start = performance.now();
-  const startH = current.h, startS = current.s, startL = current.l;
-  const dH = shortestHueDelta(startH, targetH);
-  const dS = targetS - startS;
-  const dL = targetL - startL;
-
-  function tick(now) {
-    const t = Math.min(1, (now - start) / durationMs);
-    const e = t < 0.5 ? 2*t*t : 1 - Math.pow(-2*t + 2, 2)/2;
-
-    const h = (startH + dH * e + 360) % 360;
-    const s = startS + dS * e;
-    const l = startL + dL * e;
-
-    current = { h, s, l };
-    document.body.style.backgroundColor = `hsl(${h}, ${s}%, ${l}%)`;
-
-    if (t < 1) animId = requestAnimationFrame(tick);
-  }
-  animId = requestAnimationFrame(tick);
-}
-
-setColorSmooth(rootHue, typeSat, bassLight, fadeMsOnSync);
 
 	
 //同期ボタン
