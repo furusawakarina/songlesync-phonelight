@@ -28,7 +28,7 @@ player.on("chordEnter",
 	const chordName = ev.data.chord.name;
 	  let h =0;
 	  
-	let h = "white";
+	h = "white";
 	  if (chordName.startsWith("C"))
 		  h = 0;
 	  else if(chordName.startsWith("C#") || chordName.startsWith("Db"))
