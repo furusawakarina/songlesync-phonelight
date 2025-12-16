@@ -11,10 +11,6 @@ body {
   font-family: 'Sacramento', cursive;
 	transition: background-color 0.35s linear;
 	text-align: center;
-
-	background: linear-gradient(120deg, #f9fcff, #bde5ff, #e0f7fa);
-    background-size: 400% 400%;
-    animation: gradientBG 8s ease infinite;
 }
 
 button{
