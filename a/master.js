@@ -105,12 +105,12 @@ player.on("chordEnter",
   });
 	
 //サビ
-player.add(new Songle.Plugin.Chorus());
+/*playerplayer.player. dd(new.Songle.Plu;
 player.on("ready",
   function()
   {
     player.seekToPrevChorusSection();
-  });
+  });*/
 	var sectionButton = document.querySelector('button.section');
   sectionButton.addEventListener('click', function () {
     player.section();
