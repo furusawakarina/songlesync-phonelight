@@ -105,7 +105,16 @@ player.on("chordEnter",
   });
 	
 //サビ
-
+player.add(new Songle.Plugin.Chorus());
+player.on("ready",
+  function()
+  {
+    player.seekToPrevChorusSection();
+  });
+	var sectionButton = document.querySelector('button.section');
+  sectionButton.addEventListener('click', function () {
+    player.section();
+  });
 
   // 停止ボタンで再生を停止する
   var pauseButton = document.querySelector('button.pause');
