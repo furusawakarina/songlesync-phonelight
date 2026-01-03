@@ -105,8 +105,8 @@ player.on("chordEnter",
   });
 	
 //サビ
-/*playerplayer.player. dd(new.Songle.Plu;
-player.on("ready",
+player.add(new Songle.Plugin.Chorus());
+/*player.on("ready",
   function()
   {
     player.seekToPrevChorusSection();
