@@ -111,8 +111,8 @@ player.on("ready",
   {
     player.seekToPrevChorusSection();
   });*/
-	var sectionButton = document.querySelector('button.section');
-  sectionButton.addEventListener('click', function () {
+	var seekToPrevChorusSectionButton = document.querySelector('button.seekToPrevChorusSection');
+  seekToPrevChorusSectionnButton.addEventListener('click', function () {
     player.seekToPrevChorusSection();
   });
 
