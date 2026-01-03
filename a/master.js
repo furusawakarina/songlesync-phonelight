@@ -88,9 +88,9 @@ player.on("chordEnter",
   });
 
   // ページが読み込まれたら再生を開始する
-  player.on('mediaReady', function () {
+  /*player.on('mediaReady', function () {
     player.play();
-  });
+  });*/
 
   // 再生ボタンで再生を開始する
   var playButton = document.querySelector('button.play');
