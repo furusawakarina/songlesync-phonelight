@@ -113,7 +113,7 @@ player.on("ready",
   });*/
 	var sectionButton = document.querySelector('button.section');
   sectionButton.addEventListener('click', function () {
-    player.section();
+    player.seekToPrevChorusSection();
   });
 
   // 停止ボタンで再生を停止する
