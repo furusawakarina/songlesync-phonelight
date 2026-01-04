@@ -105,14 +105,14 @@ player.on("chordEnter",
   });
 	
 //サビ
- player.add(new Songle.Plugin.Chorus());
+ player.addPlugin(new Songle.Plugin.Chorus());
 /*player.on("ready",
   function()
   {
     player.seekToPrevChorusSection();
   });*/
 	var seekToPrevChorusSectionButton = document.querySelector('button.seekToPrevChorusSection');
-  seekToPrevChorusSectionnButton.addEventListener('click', function () {
+  seekToPrevChorusSectionButton.addEventListener('click', function () {
     player.seekToPrevChorusSection();
   });
 
