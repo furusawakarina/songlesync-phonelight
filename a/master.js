@@ -14,7 +14,17 @@ function onSongleAPIReady(Songle) {
   clientId: "unique-" + Date.now()
   }));
 
-  player.useMedia("https://www.nicovideo.jp/watch/sm45018099");
+  //player.useMedia("https://www.nicovideo.jp/watch/sm45018099");
+	const songA = "https://www.nicovideo.jp/watch/sm45018099";
+	const songB = "https://www.nicovideo.jp/watch/sm40955466";
+
+	document.querySelector('button.songA')?.addEventListener('click', () => {
+	  player.useMedia(songA);
+	});
+
+	document.querySelector('button.songB')?.addEventListener('click', () => {
+	  player.useMedia(songB);
+	});
 
 
 
