@@ -129,8 +129,8 @@ player.on("chordEnter",
   // 停止ボタンで再生を停止する
   var pauseButton = document.querySelector('button.pause');
   pauseButton.addEventListener('click', function () {
-    //player.pause();
-	  player.seekTo(player.positionTime);
+    player.pause();
+	//player.seekTo(player.positionTime);
   });
 
 
