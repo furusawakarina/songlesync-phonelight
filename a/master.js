@@ -14,7 +14,7 @@ function onSongleAPIReady(Songle) {
   clientId: "unique-" + Date.now()
   }));
 
-  player.useMedia("https://www.youtube.com/watch?v=0xSiBpUdW4E");
+  player.useMedia("https://songle.jp/songs/songle.jp%2Fuploads%2Fd3qatvhs14puejcuhu40.mp3E");
 
 
 
