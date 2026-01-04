@@ -9,10 +9,10 @@ function onSongleAPIReady(Songle) {
 	
   });
 
-  /*player.addPlugin(new Songle.Plugin.SongleSync({
+  player.addPlugin(new Songle.Plugin.SongleSync({
 	  enabled: true,    // 新しく接続を開始
   clientId: "unique-" + Date.now()
-  }));*/
+  }));
 
   //player.useMedia("https://www.nicovideo.jp/watch/sm45018099");
 	const songA = "https://www.nicovideo.jp/watch/sm45018099";
@@ -129,7 +129,8 @@ player.on("chordEnter",
   // 停止ボタンで再生を停止する
   var pauseButton = document.querySelector('button.pause');
   pauseButton.addEventListener('click', function () {
-    player.pause();
+    //player.pause();
+	  player.seekTo(player.positionTime);
   });
 
 
