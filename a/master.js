@@ -105,7 +105,7 @@ player.on("chordEnter",
   });
 	
 //サビ
-player.add(new Songle.Plugin.Chorus());
+ player.add(new Songle.Plugin.Chorus());
 /*player.on("ready",
   function()
   {
