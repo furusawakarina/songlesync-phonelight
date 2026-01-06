@@ -4,6 +4,12 @@ function onSongleAPIReady(Songle){
       accessToken: '00000144-8PDPBsb' // アクセストークン
 	  //mediaElement: "#songle"
   });
+	var span = document.querySelector('span.time');
+  setInterval(function () {
+    while (span.childNodes.length > 0) span.removeChild(span.childNodes[0]);
+    var textNode = document.createTextNode(parseInt(player.position));
+    span.appendChild(textNode);
+  }, 100);
 
 	/*const player =
   new window.Songle.Player({
