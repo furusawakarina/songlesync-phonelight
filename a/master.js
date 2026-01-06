@@ -133,7 +133,9 @@ player.on("chordEnter",
 	//player.seekTo(player.positionTime);
   });
 
-
+	//ボタンでの切り替え
+const buttons = document.querySelectorAll('button[data-color]');
+	
   // 再生時刻を定期的に更新する
   var span = document.querySelector('span.time');
   setInterval(function () {
